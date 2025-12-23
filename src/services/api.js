@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+export const API_BASE_URL = process.env.VUE_APP_API_BASE_URL;
 
 export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem("token");
@@ -9,7 +9,7 @@ export async function apiFetch(endpoint, options = {}) {
     ...(options.headers || {})
   };
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     headers
   });
